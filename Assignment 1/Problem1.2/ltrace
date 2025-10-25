@@ -1,0 +1,27 @@
+trace ./Problem1.2
+b -l 512 -b 1024 -u -r 1 hello
+getopt(9, 0x7ffff6228818, "b:l:unr:")                                     = 108
+atoi(0x7ffff6229e76, 0x403068, 0x7f345ddd3240, 0)                         = 512
+getopt(9, 0x7ffff6228818, "b:l:unr:")                                     = 98
+atoi(0x7ffff6229e7d, 0x403068, 0x7f345ddd3240, 0)                         = 1024
+getopt(9, 0x7ffff6228818, "b:l:unr:")                                     = 117
+getopt(9, 0x7ffff6228818, "b:l:unr:")                                     = 114
+atoi(0x7ffff6229e88, 0x403068, 0x7f345ddd3240, 0)                         = 1
+getopt(9, 0x7ffff6228818, "b:l:unr:")                                     = -1
+setvbuf(0x7f345ddd45c0, nil, 2, 1024)                                     = 0
+strlen("hello")                                                           = 5
+putchar(104, 0, 0x7ffff6229e8a, 0h)                                        = 104
+strlen("hello")                                                           = 5
+putchar(101, 0x7f345ddd4643, 0x7ffff6229e8a, 0x7f345ddd57b0e)              = 101
+strlen("hello")                                                           = 5
+putchar(108, 0x7f345ddd4643, 0x7ffff6229e8a, 0x7f345ddd57b0l)              = 108
+strlen("hello")                                                           = 5
+putchar(108, 0x7f345ddd4643, 0x7ffff6229e8a, 0x7f345ddd57b0l)              = 108
+strlen("hello")                                                           = 5
+putchar(111, 0x7f345ddd4643, 0x7ffff6229e8a, 0x7f345ddd57b0o)              = 111
+strlen("hello")                                                           = 5
+putchar(10, 0x7f345ddd4643, 0x7ffff6229e8a, 0x7f345ddd57b0
+)               = 10
+free(nil)                                                                 = <void>
+free(nil)                                                                 = <void>
++++ exited (status 0) +++

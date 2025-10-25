@@ -1,0 +1,21 @@
+Answer for b):
+
+- the output:
+
+$./Problem7.1main 
+b.c: f()
+b.c: g()
+a.c: h()
+a.c: g()
+a.c: f()
+
+-the output analysis:
+the main function calls a function in b.c file  which then calls the other functions
+the last 3 lines suggest that the linker applied the rules of strong and weak symbols to resolve the conflicts between g() and f()
+
+Answer for c):
+
+C++ uses name mangling to resolve the ambiguity that arises from features like function overloading, namespaces, classes, and templates, which allow multiple functions or variables to share the same name but differ in their parameters, scope, or type signatures.
+Since the linker, which combines object files, traditionally only recognizes unique names and cannot interpret complex type information, name mangling encodes additional semantic details such as function parameter types, return types, class or namespace scope, and calling conventions into the symbol name.
+This ensures that each function or variable has a unique identifier in the object code, allowing the linker to correctly resolve references during the linking phase.
+The extern keyword in C is used to declare a variable or function whose definition resides in another source file or scope, thereby extending its visibility across multiple translation units in a program.

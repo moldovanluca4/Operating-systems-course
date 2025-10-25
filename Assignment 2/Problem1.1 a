@@ -1,0 +1,68 @@
+main                  the entry point
+
+addi sp,sp,-48        performs the operation sp <- sp - 48
+
+sd s0,40(sp)          40 is the offset that means is a constant value added 
+                      to the base register to calculate the finaly memory 
+                      address, s0 is the source register containing the
+                      data to be stored, sp is the base register whose
+                      value is used as the starting address. basically the
+                      sd instruction copies a 64-bit value from a source 
+                      register to a specific memory address
+                    
+addi s0,sp,48         performs the operation s0 <- sp + 48
+
+-first three lines => make room for 48 bytes on stack, save old frame pointer, set new frame pointer
+
+
+mv a5,a0              mv is used to copy value from a register to another
+                      performs a5 <- a0 this could be the equivalent of 
+                      addi a5,a0,0
+                   
+sd a1,-48(s0)         a1 is the source register and we copy a
+		      64-bit value to a specific memory address which we
+		      calculate using the offset = -48 
+		   
+sw a5,-36(s0)         sw is storing the lower 4 bytes from a source register
+                      into a specified memory location in this case a5
+                      is the source register containing the data to be
+                      stored, s0 holds the base address and the offset = -36
+                      we use to calculate the final memory address
+                    
+sw zero,-20(s0)       zero is a special purpose register that is hardwired
+                      to always output the value 0 and discard any data 
+                      written to it, in this sw we store the value 0 from
+                      the zero register into a memory location. The memory
+                      location is calculated by substracting 20 from the 
+                      value stored in register s0
+                      
+-next lines => save argv, save argc, rc=0                      
+                      
+      
+      
+lw a5,-20(s0) 	      lw stands for load word and is used to load a word 
+		      from memory into a register, a5 is the destination 
+		      register, s0 holds the base addres and the 
+		      offset = -20 is the immediate value
+		    
+mv a0,a5              using mv we perform a copy a0 <- a5 this can be
+		      equivalent to addi a0,a5,0
+		      
+-next two lines => load rc, return rc
+
+		     
+ld s0,40(sp)          ld loads a 64-bit value from memory into a destination
+		      register
+		      
+addi sp,sp,48         sp <- sp + 48
+
+jr ra                 we perform an unconditional jump to the address 
+		      stored in the register ra. Used to return from a 
+		      function call
+		      
+-the last lines => restore old frame pointer, deallocate stack space,
+return
+		      
+                      
+                      
+                      

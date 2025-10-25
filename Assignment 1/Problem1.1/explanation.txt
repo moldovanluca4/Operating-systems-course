@@ -1,0 +1,15 @@
+b)a)
+
+Condition 1 - we open a file that does not exist without O_CREAT so the open() fails, it returns -1 because the kernel can not find the file and open it. errno is ENOENT ("No such file or directory")
+
+Condition 2 - the second file it exists but we use chmod 444 <filename> to make the file available for read only and we open in write only, the open fails and we receive return -1, the kernel require control access based on the file permision. errno is EACCES or EROFS 
+
+Condition 3 - we attempt to open a file that exceeds a system limit (maybe a path max macro) then the open fails. we get return -1 because the kernel cannot handle paths longer than its system limit. errno is ENAMETOOLONG
+
+Condition 4 - we try to close a file that was never opened we get return -1 because the OS does not recognize the descriptor as valid. the eerno is EBADF ("Bad file descriptor")
+
+b)
+
+The value of errno is 0 when a system call completes without an error.
+This value is considered the default, no-error state for errno.
+

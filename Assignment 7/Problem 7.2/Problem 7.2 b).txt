@@ -1,0 +1,31 @@
+a) the total number of bytes allocated is 2541327.0
+b)min, max, mean 
+malloc:
+1.0
+103792.0
+684.68
+
+calloc:
+32.0
+262144.0
+13630.95
+
+realloc:
+6.0
+15391.0
+1933.02
+
+free:
+nan
+nan
+nan
+
+c)10 most frequently allocated sized:
+1097 140 117 61 48 46 33 33 31 29
+
+d)cases when malloc return the same pointer
+
+intersection points = {'0x557fb061e280', '0x557fb0610c60', '0x557fb05b8ca0', '0x557fb06245f0', '0x557fb061dea0', '0x557fb05c2d10', '0x557fb06173a0', '0x557fb0628860', '0x557fb062b080', '0x557fb061bb00', '0x557fb061aa20', '0x557fb0615370', '0x557fb05c0b10'}
+i dont think memory was reused i think the memory address was reused the encoding of the memory addres is randomized everytime you run a program this is due safety reasons
+everytime you run a program the memory address is different due to safety reasons
+my final guess is that can be reused 

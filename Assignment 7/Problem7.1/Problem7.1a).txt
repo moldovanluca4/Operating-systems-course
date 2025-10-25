@@ -1,0 +1,22 @@
+file a.c:
+x - reference of external symbol, weak linkable symbol
+y - reference of external symbol, strong linkable symbol          (global uninitialized  data)
+f - internal unlinkable symbol, strong linkable symbol             (local code, text section)
+g - reference of external symbol, strong linkable symbol          (global code)
+h - reference of external, strong linkable symbol                 (global code)
+
+
+
+file b.c:
+x - reference of external symbol, strong linkable symbol             (global initialized data)
+y - internal unlinkable symbol, strong linkable symbol
+z - internal unlinkable symbol, strong linkable symbol
+f - reference of external symbol, strong linkable symbol              (global code)
+g - internal unlinkable symbol, strong linkable symbol
+
+
+
+used - man nm or man readelf
+     - nm -g for external only
+     - nm -W for no weak
+     - nm -j for format (optional)

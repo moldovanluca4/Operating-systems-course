@@ -1,0 +1,26 @@
+Start - one process                             P0 x=1
+
+First forks - Parent P0                         P0 x=1
+              Child C1                          C1 x=1
+             
+             
+Second fork - each of the                       P0 -> C2  x=1
+              processes will                    C1 -> C3  x=1
+              have a child
+             
+
+Third fork - previous children                  C2 -> C4   x=2
+             are now parents                    C3 -> C5   x=2
+             
+                                                           x=3
+                                                
+            At the end we will have 6 processes and x=3
+            
+            
+           P0 
+          /  \
+         C1   C2
+        /       \
+       C3        C4
+       /
+      C5 
